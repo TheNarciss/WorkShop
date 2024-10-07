@@ -9,10 +9,10 @@
     <h1>ESP32 WebSocket Communication</h1>
     <button id="sendButton">Send to ESP32</button>
     <p id="response">Waiting for response...</p>
-
+ 
     <script>
         // Connexion WebSocket à l'ESP32
-        const ws = new WebSocket('ws:// 10.1.224.54:81'); // Remplace YOUR_ESP32_IP par l'IP de ton ESP32
+        const ws = new WebSocket('ws://10.1.224.54:81'); // Remplace YOUR_ESP32_IP par l'IP de ton ESP32
 
         ws.onopen = () => {
             console.log('Connected to ESP32 WebSocket');
