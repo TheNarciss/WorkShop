@@ -1,27 +1,30 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ma Page Web</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>ESP32 WebSocket Demo</title>
 </head>
 <body>
-    <header>
-        <h1>Bienvenue sur ma page web</h1>
-    </header>
-    <main>
-        <section>
-            <h2>Section 1</h2>
-            <p>Ceci est un paragraphe dans la section 1.</p>
-        </section>
-        <section>
-            <h2>Section 2</h2>
-            <p>Ceci est un paragraphe dans la section 2.</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2023 Mon Site Web</p>
-    </footer>
+    <h1>ESP32 WebSocket Communication</h1>
+    <button id="sendButton">Send to ESP32</button>
+    <p id="response">Waiting for response...</p>
+
+    <script>
+        // Connecter au WebSocket du serveur ESP32
+        const ws = new WebSocket('ws://YOUR_ESP32_IP'); // Remplace par l'IP de l'ESP32
+
+        ws.onopen = () => {
+            console.log('Connected to ESP32 WebSocket');
+        };
+
+        ws.onmessage = (event) => {
+            document.getElementById('response').innerText = `Message from ESP32: ${event.data}`;
+        };
+
+        document.getElementById('sendButton').addEventListener('click', () => {
+            ws.send('1'); // Envoyer un message "1" à l'ESP32
+        });
+    </script>
 </body>
 </html>
