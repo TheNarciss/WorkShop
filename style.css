@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100vh;
+}
+
+/* Flexbox for large screens */
+.container > div {
+    flex: 1 1 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    color: white;
+    height: 100px;
+}
+
+/* Section colors */
+.header {
+    background-color: #4CAF50; /* Green */
+}
+.main {
+    background-color: #2196F3; /* Blue */
+}
+.left {
+    background-color: #FFC107; /* Amber */
+}
+.right {
+    background-color: #FF5722; /* Deep Orange */
+}
+.footer {
+    background-color: #9C27B0; /* Purple */
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .container > div {
+        height: auto;
+        flex-basis: 20%;
+    }
+}
