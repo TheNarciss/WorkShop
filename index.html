@@ -1,30 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ESP32 WebSocket Demo</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ayushsharma82/Neumorphism.css/neumorphism.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Site Néomorphique</title>
 </head>
 <body>
-    <h1>ESP32 WebSocket Communication</h1>
-    <button id="sendButton">Send to ESP32</button>
-    <p id="response">Waiting for response...</p>
- 
-    <script>
-        // Connexion WebSocket à l'ESP32
-        const ws = new WebSocket('ws://10.1.224.54:81'); // Remplace YOUR_ESP32_IP par l'IP de ton ESP32
-
-        ws.onopen = () => {
-            console.log('Connected to ESP32 WebSocket');
-        };
-
-        ws.onmessage = (event) => {
-            document.getElementById('response').innerText = `Message from ESP32: ${event.data}`;
-        };
-
-        document.getElementById('sendButton').addEventListener('click', () => {
-            ws.send('1'); // Envoyer un message "1" à l'ESP32
-        });
-    </script>
+    <div class="container">
+        <div class="panel-left">
+            <div class="info-panel">
+                <h2>Information 1</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class="info-panel">
+                <h2>Information 2</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </div>
+        <div class="panel-right">
+            <div class="control-panel">
+                <h2>Control 1</h2>
+                <input type="range" class="neumorphic-slider" />
+            </div>
+            <div class="control-panel">
+                <h2>Control 2</h2>
+                <input type="range" class="neumorphic-slider" />
+            </div>
+            <div class="control-panel">
+                <h2>Control 3</h2>
+                <button class="neumorphic-button">Press me</button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
