@@ -1,242 +1,174 @@
-html {
-    font-size: 62.5%;
-  }
-  
-  body {
-    background: #ebecf0;
-    font-family: "montserrat", sans-serif;
-    position: relative;
-    padding: 6rem;
-    min-height: 100vh;
-    font-size: 14px;
-    font-weight:500; 
-  }
-   
-  i {
-    font-size: 1.4rem;
-  }
-  
-  .grid {
-    margin: 0 auto;
-    margin-top: 2rem;
-    max-width: 300px;
-    min-width: 250px;
-    display: grid;
-    grid-gap: 2rem;
-    grid-template-rows: repeat(13, 1fr);
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-areas: "log log bti1 bti2" "log log btr1 btr2" "bs1 bs1 swio swio" "bs2 bs2 swia swia" "bt1 bt1 bt1 bt1" "bt2 bt2 bt2 bt2" "bt3 bt3 bt3 bt3" "bt4 bt4 bt4 bt4" "sea sea sea sea" "char char char char" "char char char char" "char char char char";
-  }
-  @media only screen and (min-width: 600px) {
-    .grid {
-      grid-gap: 2.5rem;
-      max-width: 650px;
-      min-width: 500px;
-      grid-template-rows: repeat(6, 1fr);
-      grid-template-columns: repeat(8, minmax(min-content, 1fr));
-      grid-template-areas: "log log bt1 bt1 bt1 bti1 bti2 swio" "log log bt2 bt2 bt2 btr1 btr2 swia" "bs1 bs1 bt3 bt3 bt3 char char char" "bs2 bs2 bt4 bt4 bt4 char char char" "sea sea sea sea sea char char char";
-  }
-  .grid > * {
-    display: flex;
-    justify-content: center;
-    min-width: 4rem;
-    min-height: 4rem;
-  }
-  .grid > * > * {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: space-around;
-  }
-  .grid .logo {
-    grid-area: log;
-    justify-content: left;
-  }
-  .grid .btn-off {
-    grid-area: bt1;
-  }
-  .grid .btn-act {
-    grid-area: bt2;
-  }
-  .grid .btn-i-1 {
-    grid-area: bti1;
-    justify-content: right;
-  }
-  .grid .btn-i-2 {
-    grid-area: bti2;
-    justify-content: left;
-  }
-  .grid .btn-r-1 {
-    grid-area: btr1;
-    justify-content: right;
-  }
-  .grid .btn-r-2 {
-    grid-area: btr2;
-    justify-content: left;
-  }
-  .grid .switch-o {
-    grid-area: swio;
-  }
-  .grid .switch-o > * {
-    justify-content: center;
-    align-items: center;
-  }
-  .grid .switch-a {
-    grid-area: swia;
-    justify-content: center;
-    align-items: center;
-  }
-  .grid .btn-sm-1 {
-    grid-area: bs1;
-    justify-content: left;
-  }
-  .grid .btn-sm-2 {
-    grid-area: bs2;
-    justify-content: left;
-  }
-  .grid .btn-drop {
-    grid-area: bt3;
-  }
-  .grid .btn-user {
-    grid-area: bt4;
-  }
-  .grid .search {
-    grid-area: sea;
-  }
-  .grid .search > * {
-    justify-content: space-between;
-  }
-  .grid .chart {
-    grid-area: char;
-  }
-  .grid .chart > * {
-    align-content: flex-end;
-  } 
-  
-  .morph {
-    border: 2px solid transparent;
-    background: linear-gradient(160deg, #f0f1f4 0%, #e4e6eb 100%);
-    box-shadow: -3px -3px 6px 2px #ffffff, 5px 5px 8px 0px rgba(0, 0, 0, 0.17), 1px 2px 2px 0px rgba(0, 0, 0, 0.1);
-    transition: 0.1s;
-  }
-  .morph.active, 
-  .morph:focus {
-    border: 2px solid #fafafa;
-    outline:none;
-    box-shadow: inset -3px -3px 5px 0px #ffffff, -1px -1px 4px 0px #ffffff, inset 5px 5px 10px 0px rgba(0, 0, 0, 0.12), inset 2px 2px 3px 0px rgba(0, 0, 0, 0.07), 1px 2px 3px 0px rgba(0, 0, 0, 0.1);
-  }
-  .btn {
-    padding: 1.5rem;
-    border-radius: 5rem;
-    text-align: center;
-  }
-  .btn--square {
-    width: 11.4rem;
-    height: 11.4rem;
-    min-width: 11.4rem;
-    border-radius: 2rem;
-    font-size: 5rem;
-    -webkit-background-clip: text;
-    color: transparent;
-    background-image: linear-gradient(90deg, #22ff82, #21bdff, #5433ff);
-  }
-  .btn--sm {
-    max-width: 8.4rem;
-    min-width: 8.4rem;
-  }
-  .btn--icon {
-    width: 4rem;
-    height: 4rem;
-    max-width: 4rem;
-    max-height: 4rem;
-    border-radius: 1.2rem;
-  }
-  .btn--icon--rounded {
-    border-radius: 100%;
-  }
-  
-  .chart--grid {
-    list-style: none;
-    padding: 0;
+* {
     margin: 0;
-    height: 100%;
-  }
-  .chart--item {
-    width: 10%;
-    height: 100%;
-    border: 1px solid #fff;
-    border-radius: 2rem;
-    padding-top: 15%;
+    padding: 0;
     box-sizing: border-box;
-    overflow: hidden;
-    z-index: 1;
-    align-self: flex-end;
-  }
-  .chart--item--inner {
-    background-image: linear-gradient(120deg, #22ff82, #21bdff, #5433ff);
-    border-radius: 2rem;
-    height: 100%;
-    opacity: 0.8;
-  }
-  .chart--item--1 {
-    height: 70%;
-  }
-  .chart--item--2 {
-    height: 85%;
-  }
-  .chart--item--3 {
-    height: 55%;
-  }
-  .chart--item--4 {
-    height: 100%;
-  }
-  .chart--item--5 {
-    height: 70%;
-  }
-  
-  input[type="checkbox"].ios-checkbox {
-    display: none;
-  }
-  input[type="checkbox"].ios-checkbox + label {
+}
+
+body {
+    display: flex;
+    justify-content: space-between; /* Distribue les éléments de manière égale */
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    padding: 0 500px; /* Ajoute un peu d'espace sur les côtés */
+}
+
+.neumorphic-coutainer-left, .neumorphic-coutainer-right {
+    background: #e0e0e0;
+    border-radius: 50px;
+    box-shadow: 8px 8px 16px #bebebe, -8px -8px 16px #ffffff;
+    width: 250px; /* Plus de largeur pour espacer le texte */
+    height: auto; /* Laisse l'élément prendre la hauteur nécessaire */
+    display: flex;
+    flex-direction: column; /* Organise verticalement */
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-size: 18px;
+    color: #333;
+    font-family: Arial, sans-serif;
+}
+
+.neumorphic-coutainer-left:hover, .neumorphic-coutainer-right:hover {
+    box-shadow: 6px 6px 12px #bebebe, -6px -6px 12px #ffffff;
+}
+
+
+
+.neumorphic-button {
+    margin-top: 20px; /* Ajoute un espace entre "Bonjour" et le bouton */
+    width: 200px;
+    height: 60px;
+    background: #e0e0e0;
+    border-radius: 50px;
+    box-shadow: 8px 8px 16px #bebebe, -8px -8px 16px #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: #333;
+    font-family: Arial, sans-serif;
+    transition: all 0.3s ease;
+}
+
+.neumorphic-button:hover {
+    box-shadow: 6px 6px 12px #bebebe, -6px -6px 12px #ffffff;
+}
+
+.neumorphic-button:active {
+    box-shadow: inset 8px 8px 16px #bebebe, inset -8px -8px 16px #ffffff;
+}
+/* Switch Container */
+.switch-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px; /* Ajoute une marge pour espacer les switches des autres éléments */
+}
+
+/* Switch Style */
+.switch {
     position: relative;
     display: inline-block;
-    cursor: pointer;
     width: 60px;
-    height: 30px;
-  }
-  input[type="checkbox"].ios-checkbox + label:before, 
-  input[type="checkbox"].ios-checkbox + label:after {
-    content: "";
+    height: 34px;
+    margin: 20px; /* Même marge que les boutons */
+    border-radius: 50px; /* Bords arrondis similaires aux boutons */
+    box-shadow: 8px 8px 16px #bebebe, 
+                -8px -8px 16px #ffffff; /* Ombres pour l'effet néomorphique */
+    background: #e0e0e0; /* Fond du switch en harmonie avec les boutons */
+}
+
+/* Hide the original checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Slider */
+.slider {
     position: absolute;
+    cursor: pointer;
     top: 0;
     left: 0;
-    height: 30px;
-    border-radius: 60px;
-    -moz-transition: all 0.2s ease;
-    -o-transition: all 0.2s ease;
-    -webkit-transition: all 0.2s ease;
-    transition: all 0.2s ease;
-  }
-  input[type="checkbox"].ios-checkbox + label:before {
-    background-color: #eeeeee;
-    width: 60px;
-    -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
-    -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
-  }
-  input[type="checkbox"].ios-checkbox + label:after {
-    width: 30px;
-    background-color: #ebecf0;
-    -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-    -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-  }
-  input[type="checkbox"].ios-checkbox:checked + label:before {
-    background: linear-gradient(120deg, #22ff82, #21bdff, #5433ff);
-  }
-  input[type="checkbox"].ios-checkbox:checked + label:after {
-    left: 30px;
-  }
-} 
-  
-    
+    right: 0;
+    bottom: 0;
+    background-color: #e0e0e0;
+    border-radius: 34px;
+    box-shadow: 8px 8px 16px #bebebe, 
+                -8px -8px 16px #ffffff;
+    transition: 0.4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 8px 8px 16px #bebebe, 
+                -8px -8px 16px #ffffff;
+    transition: 0.4s;
+}
+
+/* Switch Active State */
+input:checked + .slider {
+    background-color: #4caf50;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Rounded slider */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+.neumorphic-gauge {
+    position: relative;
+    width: 200px; /* Largeur de la jauge */
+    height: 30px; /* Hauteur de la jauge */
+    background: #e0e0e0; /* Fond de la jauge */
+    border-radius: 50px; /* Coins arrondis */
+    box-shadow: 8px 8px 16px #bebebe, -8px -8px 16px #ffffff; /* Ombres pour l'effet néomorphique */
+    overflow: hidden; /* Pour cacher la partie remplie qui dépasse */
+}
+
+.gauge-fill {
+    height: 100%; /* Remplit toute la hauteur de la jauge */
+    background: #4caf50; /* Couleur de remplissage */
+    transition: width 0.3s ease; /* Animation pour le changement de largeur */
+    border-radius: 50px 0 0 50px; /* Coins arrondis à gauche */
+}
+/* Container de la jauge */
+
+#simple-gauge {
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    width: 200px; /* Largeur de la jauge */
+    height: 34px; /* Hauteur de la jauge */
+    background-color: #ddd; /* Couleur de fond */
+    border-radius: 25px; /* Forme de capsule */
+    overflow: hidden; /* S'assure que le contenu ne déborde pas */
+    box-shadow: inset 5px 5px 10px #bebebe, inset -5px -5px 10px #ffffff; /* Ombres */
+}
+
+#simple-gauge-fill {
+    position: absolute;
+    height: 100%; /* Remplit toute la hauteur de la jauge */
+    width: 100%; /* Commence à 100% par défaut */
+    background-color: #4caf50; /* Couleur verte */
+    border-radius: 25px; /* Forme de capsule pour le remplissage */
+    transition: width 0.3s ease; /* Transition fluide lorsque la jauge se remplit */
+}
+
